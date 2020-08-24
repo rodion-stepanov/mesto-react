@@ -1,7 +1,6 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import api from '../utils/api'
 
 export default function EditProfilePopup(props) {
     const currentUser = React.useContext(CurrentUserContext);
@@ -27,12 +26,13 @@ export default function EditProfilePopup(props) {
         });
     }
 
+    // console.log(props.onEditAvatar)
+
     React.useEffect(() => {
-        api.getInfoUser()
-            .then((currentUser) => {
-                setName(currentUser.name);
-                setDescription(currentUser.about);
-            })
+        if (currentUser !== '') {
+            setName(currentUser.name);
+            setDescription(currentUser.about);
+        }
     }, [currentUser]);
 
     return (
