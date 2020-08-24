@@ -3,7 +3,7 @@
 .header {
   display: flex;
   flex: 0 0 auto;
-  justify-content: start;
+  justify-content: flex-start;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   width: 68.91%;
   max-width: 882px;

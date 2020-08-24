@@ -1,7 +1,9 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
+  "description": "Сайт с карточками красивых мест",
   "private": true,
+  "author": "Родион",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

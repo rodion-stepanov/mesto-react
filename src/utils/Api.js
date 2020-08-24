@@ -33,8 +33,8 @@ class Api {
             method: 'PATCH',
             headers: this.headers,
             body: JSON.stringify({
-                name: data.userName,
-                about: data.userDescription
+                name: data.name,
+                about: data.about
             })
         })
             .then(res => {
@@ -75,22 +75,35 @@ class Api {
             });
     }
 
-    setLike(data) {
-        return fetch(`${this.url}/cards/likes/${data._id}`, {
-            method: 'PUT',
-            headers: this.headers
-        })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-            });
-    }
+    // setLike(data) {
+    //     return fetch(`${this.url}/cards/likes/${data._id}`, {
+    //         method: 'PUT',
+    //         headers: this.headers
+    //     })
+    //         .then(res => {
+    //             if (res.ok) {
+    //                 return res.json();
+    //             }
+    //             return Promise.reject(`Ошибка: ${res.status}`);
+    //         });
+    // }
 
-    removeLike(data) {
-        return fetch(`${this.url}/cards/likes/${data._id}`, {
-            method: 'DELETE',
+    // removeLike(data) {
+    //     return fetch(`${this.url}/cards/likes/${data._id}`, {
+    //         method: 'DELETE',
+    //         headers: this.headers
+    //     })
+    //         .then(res => {
+    //             if (res.ok) {
+    //                 return res.json();
+    //             }
+    //             return Promise.reject(`Ошибка: ${res.status}`);
+    //         });
+    // }
+
+    changeLikeCardStatus(id, isLiked) {
+        return fetch(`${this.url}/cards/likes/${id}`, {
+            method: `${isLiked ? 'PUT' : 'DELETE'}`,
             headers: this.headers
         })
             .then(res => {
@@ -106,7 +119,7 @@ class Api {
             method: 'PATCH',
             headers: this.headers,
             body: JSON.stringify({
-                avatar: data.link
+                avatar: data.avatar
             })
         })
             .then(res => {

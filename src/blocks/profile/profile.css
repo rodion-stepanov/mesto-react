@@ -9,7 +9,6 @@
 
 .profile {
   display: flex;
-  justify-content: start;
   width: 68.91%;
   max-width: 882px;
   margin: 40px auto 0;
