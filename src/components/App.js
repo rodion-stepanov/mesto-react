@@ -157,7 +157,7 @@ function App() {
           onClose={closeAllPopups} />
         <PopupWithForm title='Вы уверены?' name="delete_confirm" button='Да' />
 
-        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} ></EditAvatarPopup>/>
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
       </div >
     </CurrentUserContext.Provider>
   );
