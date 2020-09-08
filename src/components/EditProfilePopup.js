@@ -26,8 +26,6 @@ export default function EditProfilePopup(props) {
         });
     }
 
-    // console.log(props.onEditAvatar)
-
     React.useEffect(() => {
         if (currentUser !== '') {
             setName(currentUser.name);
@@ -39,7 +37,8 @@ export default function EditProfilePopup(props) {
         <PopupWithForm title='Редактировать профиль' name="profile_edit" button='Сохранить'
             isOpen={props.isOpen}
             onClose={props.onClose}
-            onSubmit={handleSubmit} >
+            onSubmit={handleSubmit}
+            isLoading={props.isLoading} >
             <input value={name} onChange={handleChangeName} autoComplete="off" id="user-name" type="text" name="userName" className="popup__input popup__input_value_name"
                 minLength="2" maxLength="40" required />
             <span id="user-name-error" className="popup__error popup__error_position_top"></span>

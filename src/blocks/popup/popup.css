@@ -15,6 +15,7 @@
 @import url(./__save-button/popup__save-button.css);
 @import url(./__save-button/_disabled/popup__save-button_disabled.css);
 @import url(./__save-button/_position/popup__save-button_position_center.css);
+@import url(./__save-button/_loading/popup__save-button_loading.css);
 @import url(./_card/popup_card_add.css);
 @import url(./_image/popup_image_open.css);
 @import url(./__image-container/popup__image-container.css);

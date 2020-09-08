@@ -25,7 +25,8 @@ export default function AddPlacePopup(props) {
         <PopupWithForm title='Новое место' name="card_add" button='Создать'
             isOpen={props.isOpen}
             onClose={props.onClose}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            isLoading={props.isLoading}>
             <input value={name} onChange={handleChangeName} autoComplete="off" id="card-name" type="text" name="name" placeholder="Название"
                 className="popup__input popup__input_place_name" minLength="1" maxLength="30" required />
             <span id="card-name-error" className="popup__error popup__error_position_top"></span>

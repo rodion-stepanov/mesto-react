@@ -8,9 +8,10 @@ function PopupWithForm(props) {
                 <button onClick={props.onClose} type="reset" className="popup__close-button" />
                 <h2 className="popup__header">{props.title}</h2>
                 {props.children}
-                <button type="submit" className="popup__save-button" 
-                // popup__save-button_disabled" 
-                >{props.button}</button>
+                <button type="submit" 
+                className={`popup__save-button ${props.isLoading?  'popup__save-button_loading popup__save-button_disabled' : ''}`} 
+                disabled={props.isLoading? true : ''}
+                >{props.isLoading ?  '. . .' : props.button}</button>
             </form>
         </section>
     )
