@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-// import ConfirmDeletePopup from './ConfirmDeletePopup';
 import PopupWithImage from './PopupWithImage';
 import EditProfilePopup from './EditProfilePopup';
 import api from '../utils/api';
@@ -16,8 +15,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
-  // const [isConfirmPopupOpen, setIsConfirmPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState('');
+  const [selectedCard, setSelectedCard] = React.useState({ name: '', link: '' });
   const [currentUser, setCurrentUser] = React.useState('');
   const [cards, setCards] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -96,8 +94,21 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsImagePopupOpen(false);
-    // setIsConfirmPopupOpen(false)
   }
+
+  React.useEffect(() => {
+    function handleESCclose(evt) {
+      if (evt.key === "Escape") {
+        console.log(evt)
+        closeAllPopups();
+      }
+    }
+
+    document.addEventListener('keydown', handleESCclose);
+    return () => {
+      document.removeEventListener('keydown', handleESCclose);
+    }
+  }, [])
 
   function handleUpdateUser(user) {
     setIsLoading(true);
@@ -171,8 +182,6 @@ function App() {
           card={selectedCard}
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups} />
-
-        {/* <ConfirmDeletePopup isOpen={isConfirmPopupOpen} onClose={closeAllPopups} onDeleteCard={handleCardDelete} /> */}
 
         <EditAvatarPopup isLoading={isLoading} isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
       </div >

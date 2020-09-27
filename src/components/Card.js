@@ -3,7 +3,6 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Card(props) {
     const currentUser = React.useContext(CurrentUserContext);
-
     // Определяем, являемся ли мы владельцем текущей карточки
     const isOwn = props.card.owner._id === currentUser._id;
 
