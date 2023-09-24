@@ -1,6 +1,6 @@
 # Проект "Место" на React
 ------------------
-<https://rodion257.github.io/mesto-react/>
+<https://rodion-stepanov.github.io/mesto-react/>
 
 Учебный проект "Место", перенесенный на React.
 Использовлись React Context, управляемые компоненты, хуки useState и useEffect.
